@@ -16,7 +16,7 @@ with st.form("survey_form"):
     submitted = st.form_submit_button("Submit Data")
     
     if submitted:
-        # Check if file exists to add headers 'Category,Value' if it's the first time
+    
         file_exists = os.path.isfile('data.csv')
         with open("data.csv", "a") as file:
             if not file_exists:
@@ -29,7 +29,6 @@ with st.form("survey_form"):
 st.divider()
 st.header("Current Data in CSV")
 
-# This part checks if the file exists so the app doesn't crash on the first run
 if os.path.exists('data.csv') and os.path.getsize('data.csv') > 0:
     current_data_df = pd.read_csv('data.csv')
     st.dataframe(current_data_df)
